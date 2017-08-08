@@ -41,7 +41,7 @@ AppAsset::register($this);
 
     <body>
 	
-	<script src="<?= $this->theme->getBaseUrl() . '/js/lightbox-plus-jquery.min.js'; ?>"></script>
+	<script src="<?= $this->theme->getBaseUrl().'/js/lightbox-plus-jquery.min.js'; ?>"></script>
 	
     <?php $this->beginBody() ?>
 	
