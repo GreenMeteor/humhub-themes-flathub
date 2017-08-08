@@ -15,7 +15,6 @@ AppAsset::register($this);
         <!-- start: Meta -->
         <meta charset="utf-8">
         <title><?= $this->pageTitle; ?></title>
-        <meta name="description" content="SITENAME - SITE_DESCRIPTION.">
         <!-- end: Meta -->
 
         <!-- start: Mobile Specific -->
@@ -28,22 +27,21 @@ AppAsset::register($this);
         <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="<?= Yii::getAlias(" @web"); ?>/js/html5shiv.js"></script>
-        <link id = "ie-style" href = "<?= Yii::getAlias("@web"); ?>/css/ie.css rel = "stylesheet" >
+        <link id="ie-style" href = "<?= Yii::getAlias("@web"); ?>"/css/ie.css" rel = "stylesheet" >
         <![endif]-->
 
         <!--[if IE 9]>
-        <link id="ie9style" href="<?= Yii::getAlias(" @web"); ?>/css/ie9.css" rel="stylesheet">
+        <link id="ie9style" href="<?= Yii::getAlias(" @web"); ?>"/css/ie9.css" rel="stylesheet">
         <![endif]-->
 
         <!-- start: render additional head (css and js files) -->
         <?= $this->render('head'); ?>
         <!-- end: render additional head -->
-
     </head>
 
     <body>
 	
-	<script src="<?= $this->theme->getBaseUrl().'/js/lightbox-plus-jquery.min.js'; ?>"></script>
+	<script src="<?= $this->theme->getBaseUrl() . '/js/lightbox-plus-jquery.min.js'; ?>"></script>
 	
     <?php $this->beginBody() ?>
 	
@@ -75,16 +73,32 @@ AppAsset::register($this);
         </div>
     </div>
     <!-- end: first top navigation bar -->
+    
+    <!-- start: second top navigation bar -->
+        <div id="topbar-second" class="topbar">
+            <div class="container">
+                <ul class="nav" id="top-menu-nav">
+                    <!-- load space chooser widget -->
+                    <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
+
+                    <!-- load navigation from widget -->
+                    <?= \humhub\widgets\TopMenu::widget(); ?>
+                </ul>
+
+                <ul class="nav pull-right" id="search-menu-nav">
+                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
+                </ul>
+            </div>
+        </div>
+        <!-- end: second top navigation bar -->
 
     <?= \humhub\modules\tour\widgets\Tour::widget(); ?>
 
     <!-- start: show content (and check, if exists a sublayout -->
     <?php if (isset($this->context->subLayout) && $this->context->subLayout != "") : ?>
         <?= $this->render($this->context->subLayout, array('content' => $content)); ?>
-    <?php else { : ?>
-
-        <?= $content; } ?>
-
+    <?php else: ?>
+        <?= $content; ?>
     <?php endif; ?>
     <!-- end: show content -->
 
@@ -124,8 +138,8 @@ AppAsset::register($this);
 		} catch(err) {
 		};
 	});
-	</script>
-
+	</script> 
+	
     </body>
-</html>
+    </html>
 <?php $this->endPage() ?>
