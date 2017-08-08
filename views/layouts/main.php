@@ -65,7 +65,7 @@ AppAsset::register($this);
 
             <div class="notifications pull-right">
                 <?=
-	\humhub\widgets\NotificationArea::widget(['widgets' => [
+    \humhub\widgets\NotificationArea::widget(['widgets' => [
                     [\humhub\modules\notification\widgets\Overview::className(), [], ['sortOrder' => 10]],
                 ]]);
                 ?>

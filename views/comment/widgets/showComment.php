@@ -24,7 +24,7 @@ $canDelete = $comment->canDelete();
 						<?php if ($canWrite): ?>
 							<li>
 								<?=
-	AjaxButton::widget([
+    AjaxButton::widget([
                                     'label' => '<i class="fa fa-pencil"></i> '.Yii::t('CommentModule.widgets_views_showComment', 'Edit'),
                                     'ajaxOptions' => [
                                         'type' => 'POST',
@@ -43,7 +43,7 @@ $canDelete = $comment->canDelete();
 
 								<!-- load modal confirm widget -->
 								<?=
-	humhub\widgets\ModalConfirm::widget(array(
+    humhub\widgets\ModalConfirm::widget(array(
                                     'uniqueID' => 'modal_commentdelete_'.$comment->id,
                                     'linkOutput' => 'a',
                                     'title' => Yii::t('CommentModule.widgets_views_showComment', '<strong>Confirm</strong> comment deleting'),
