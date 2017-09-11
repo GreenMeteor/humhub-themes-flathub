@@ -73,7 +73,7 @@ AppAsset::register($this);
         </div>
     </div>
     <!-- end: first top navigation bar -->
-    
+
     <!-- start: second top navigation bar -->
         <div id="topbar-second" class="topbar">
             <div class="container">
@@ -116,7 +116,7 @@ AppAsset::register($this);
 
     <?= \humhub\models\Setting::GetText('trackingHtmlCode'); ?>
     <?php $this->endBody() ?>
-	
+
 	<div class="container">
 		<div class="col-md-12 layout-content-container">
 			<footer>
@@ -138,8 +138,8 @@ AppAsset::register($this);
 		} catch(err) {
 		};
 	});
-	</script> 
-	
+	</script>
+
     </body>
     </html>
 <?php $this->endPage() ?>
