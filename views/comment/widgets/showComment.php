@@ -5,7 +5,6 @@ use yii\helpers\Url;
 use humhub\widgets\AjaxButton;
 ?>
 
-
 <?php
 $canWrite = $comment->canWrite();
 $canDelete = $comment->canDelete();
@@ -34,16 +33,14 @@ $canDelete = $comment->canDelete();
                                     'tag' => 'a'
                                 ]);
                                 ?>
-
-							</li>
+						</li>
 						<?php endif; ?>
-
 						<?php if ($canDelete): ?>
-							<li>
+						<li>
 
 								<!-- load modal confirm widget -->
-								<?=
-    humhub\widgets\ModalConfirm::widget(array(
+								<?= 
+	humhub\widgets\ModalConfirm::widget([
                                     'uniqueID' => 'modal_commentdelete_'.$comment->id,
                                     'linkOutput' => 'a',
                                     'title' => Yii::t('CommentModule.widgets_views_showComment', '<strong>Confirm</strong> comment deleting'),
@@ -53,7 +50,7 @@ $canDelete = $comment->canDelete();
                                     'linkContent' => '<i class="fa fa-trash-o"></i> '.Yii::t('CommentModule.widgets_views_showComment', 'Delete'),
                                     'linkHref' => Url::to(["/comment/comment/delete", 'contentModel' => $comment->object_model, 'contentId' => $comment->object_id, 'id' => $comment->id]),
                                     'confirmJS' => "function(html) { $('#comment_".$comment->id."').slideUp(); }"
-                                ));
+                                ]);
                                 ?>
 							</li>
 						<?php endif; ?>
