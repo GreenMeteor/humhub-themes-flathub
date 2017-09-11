@@ -9,7 +9,7 @@ humhub\modules\like\assets\LikeAsset::register($this);
 
     <?php if (Yii::$app->user->isGuest): ?>
 
-        <?php echo Html::a(Yii::t('LikeModule.widgets_views_likeLink', 'Like'), Yii::$app->user->loginUrl, ['data-target' => '#globalModal']); ?>
+        <?= Html::a(Yii::t('LikeModule.widgets_views_likeLink', 'Like'), Yii::$app->user->loginUrl, ['data-target' => '#globalModal']); ?>
     <?php else: ?>
         <a href="#" data-action-click="like.toggleLike" data-action-url="<?= $likeUrl ?>" class="like likeAnchor" style="<?= (!$currentUserLiked) ? '' : 'display:none'?>">
             <?= Yii::t('LikeModule.widgets_views_likeLink', 'Like') ?>
@@ -21,7 +21,7 @@ humhub\modules\like\assets\LikeAsset::register($this);
 
     <?php if (count($likes) > 0) { ?>
         <!-- Create link to show all users, who liked this -->
-        <a href="<?php echo $userListUrl; ?>" data-target="#globalModal">
+        <a href="<?= $userListUrl; ?>" data-target="#globalModal">
             <span class="likeCount tt" data-placement="top" data-toggle="tooltip" title="<?= $title ?>">(<?= count($likes) ?>)</span>
         </a>
     <?php } else { ?>
@@ -29,3 +29,17 @@ humhub\modules\like\assets\LikeAsset::register($this);
     <?php } ?>
 
 </span>
+
+<script>
+     $(function () {
+         updateLikeCounters($("#likeLinkContainer_<?= $id ?>"), <?= count($likes); ?>);
+         initLikeModule();
+
+         // show Tooltips on elements inside the views, which have the class 'tt'
+         $('.tt').tooltip({
+             html: false,
+             container: 'body'
+         });
+
+     });
+ </script>
