@@ -8,6 +8,7 @@ use humhub\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -27,21 +28,22 @@ AppAsset::register($this);
         <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="<?= Yii::getAlias(" @web"); ?>/js/html5shiv.js"></script>
-        <link id="ie-style" href = "<?= Yii::getAlias("@web"); ?>"/css/ie.css" rel = "stylesheet" >
+        <link id="ie-style" href="<?= Yii::getAlias("@web"); ?>/css/ie.css" rel = "stylesheet" >
         <![endif]-->
 
         <!--[if IE 9]>
-        <link id="ie9style" href="<?= Yii::getAlias(" @web"); ?>"/css/ie9.css" rel="stylesheet">
+        <link id="ie9style" href="<?= Yii::getAlias(" @web"); ?>/css/ie9.css" rel="stylesheet">
         <![endif]-->
 
         <!-- start: render additional head (css and js files) -->
         <?= $this->render('head'); ?>
         <!-- end: render additional head -->
+
     </head>
 
     <body>
 	
-	<script src="<?= $this->theme->getBaseUrl().'/js/lightbox-plus-jquery.min.js'; ?>"></script>
+	<script src="<?= $this->theme->getBaseUrl() . '/js/lightbox-plus-jquery.min.js'; ?>"></script>
 	
     <?php $this->beginBody() ?>
 	
@@ -65,13 +67,14 @@ AppAsset::register($this);
 
             <div class="notifications pull-right">
                 <?=
-    \humhub\widgets\NotificationArea::widget(['widgets' => [
+	\humhub\widgets\NotificationArea::widget(['widgets' => [
                     [\humhub\modules\notification\widgets\Overview::className(), [], ['sortOrder' => 10]],
                 ]]);
                 ?>
             </div>
         </div>
     </div>
+    
     <!-- end: first top navigation bar -->
 
     <!-- start: second top navigation bar -->
@@ -82,7 +85,7 @@ AppAsset::register($this);
                     <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
 
                     <!-- load navigation from widget -->
-                    <?= \humhub\widgets\TopMenu::widget(); ?>
+                  <?= \humhub\widgets\TopMenu::widget(); ?>
                 </ul>
 
                 <ul class="nav pull-right" id="search-menu-nav">
@@ -98,9 +101,7 @@ AppAsset::register($this);
     <?php if (isset($this->context->subLayout) && $this->context->subLayout != "") : ?>
         <?= $this->render($this->context->subLayout, array('content' => $content)); ?>
     <?php else: ?>
-
         <?= $content; ?>
-
     <?php endif; ?>
     <!-- end: show content -->
 
@@ -130,6 +131,7 @@ AppAsset::register($this);
 		</div>
 	</div>
 
+	<script src="<?= $this->theme->getBaseUrl() . '/js/plugins-scroll.js'; ?>"></script>
 	<script>
 	$(document).ready(function() {
 		try {
