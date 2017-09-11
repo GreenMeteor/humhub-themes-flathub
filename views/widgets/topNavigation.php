@@ -8,7 +8,7 @@ use yii\helpers\Html;
         echo $item['id'];
     }
     ?>">
-            <?= Html::a($item['icon']."<br />".$item['label'], $item['url'], $item['htmlOptions']); ?>
+            <?= Html::a($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
     </li>
 <?php endforeach; ?>
 
