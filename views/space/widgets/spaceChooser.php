@@ -1,4 +1,5 @@
 <?php
+
 /* @var $this \humhub\components\WebView */
 /* @var $currentSpace \humhub\modules\space\models\Space */
 
@@ -11,10 +12,10 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 ?>
 
 <li class="dropdown"> 
-    <a href="#" id="space-menu" class="dropdown-toggle tt" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="<?php echo Yii::t('SpaceModule.widgets_SpaceBrowseMenuWidget', 'Spaces'); ?>">
+    <a href="#" id="space-menu" class="dropdown-toggle tt" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="<?= Yii::t('SpaceModule.widgets_SpaceBrowseMenuWidget', 'Spaces'); ?>">
         <!-- start: Show space image and name if chosen -->
         <?php if ($currentSpace) { ?>
-            <?php echo \humhub\modules\space\widgets\Image::widget([
+            <?= \humhub\modules\space\widgets\Image::widget([
                 'space' => $currentSpace,
                 'width' => 32,
                 'htmlOptions' => [
@@ -36,7 +37,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
             <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
                                                              class="form-control"
                                                              autocomplete="off"
-                                                             placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser', 'Search'); ?>">
+                                                             placeholder="<?= Yii::t('SpaceModule.widgets_views_spaceChooser', 'Search'); ?>">
 
                 <div class="search-reset" id="space-search-reset"><i
                         class="fa fa-times-circle"></i></div>
@@ -49,10 +50,10 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                 <?php foreach ($memberships as $membership): ?>
                     <?php $newItems = $membership->countNewItems(); ?>
                     <li>
-                        <a href="<?php echo $membership->space->getUrl(); ?>">
+                        <a href="<?= $membership->space->getUrl(); ?>">
                             <div class="media">
                                 <!-- Show space image -->
-                                <?php echo \humhub\modules\space\widgets\Image::widget([
+                                <?= \humhub\modules\space\widgets\Image::widget([
                                     'space' => $membership->space,
                                     'width' => 24,
                                     'htmlOptions' => [
@@ -60,14 +61,14 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                                     ]
                                 ]); ?>
                                 <div class="media-body">
-                                    <strong><?php echo Html::encode($membership->space->name); ?></strong>
+                                    <strong><?= Html::encode($membership->space->name); ?></strong>
                                     <?php if ($newItems != 0): ?>
                                         <div class="badge badge-space pull-right"
-                                             style="display:none"><?php echo $newItems; ?></div>
+                                             style="display:none"><?= $newItems; ?></div>
                                     <?php endif; ?>
                                     <br>
 
-                                    <p><?php echo Html::encode(Helpers::truncateText($membership->space->description, 60)); ?></p>
+                                    <p><?= Html::encode(Helpers::truncateText($membership->space->description, 60)); ?></p>
                                 </div>
                             </div>
                         </a>
@@ -89,7 +90,6 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 </li>
 
 <script type="text/javascript">
-
     // set niceScroll to SpaceChooser menu
     $("#space-menu-spaces").niceScroll({
         cursorwidth: "7",

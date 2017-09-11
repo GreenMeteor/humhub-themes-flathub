@@ -1,9 +1,12 @@
 <?php
+
 namespace humhub\modules\dashboard\widgets;
+
 use Yii;
 use humhub\modules\stream\widgets\StreamViewer;
 use humhub\components\Widget;
 use humhub\modules\content\components\ContentContainerActiveRecord;
+
 class DashboardContent extends Widget
 {
     /**
