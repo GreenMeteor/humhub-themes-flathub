@@ -1,11 +1,12 @@
 <?php
+
 /**
  * @var \humhub\modules\user\models\User $contentContainer
  * @var bool $showProfilePostForm
  */
-
 $this->pageTitle = Yii::t('DashboardModule.views_dashboard_index', 'Dashboard');
 ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 layout-content-container">
@@ -15,8 +16,8 @@ $this->pageTitle = Yii::t('DashboardModule.views_dashboard_index', 'Dashboard');
             ])?>
         </div>
         <div class="col-md-4 layout-sidebar-container">
-            <?php
-            echo \humhub\modules\dashboard\widgets\Sidebar::widget([
+            <?=
+    \humhub\modules\dashboard\widgets\Sidebar::widget([
                 'widgets' => [
                     [
                         \humhub\modules\activity\widgets\Stream::className(),
