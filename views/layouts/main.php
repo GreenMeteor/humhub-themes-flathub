@@ -57,16 +57,16 @@
             </div>
         </div>
         <!-- end: second top navigation bar -->
-        
-        <div class="container">		
-		<div class="col-md-12 layout-content-container">		
-			<footer>		
-				<div class="copyright">		
-					<span>Powered by <a target="_blank" href="https://humhub.org/">HumHub</a></span>		
-					<span>Theme <a target="_blank" href="http://thrashed.ru">developer</a></span>		
-				</div>		
-			</footer>		
-		</div>		
+
+        <div class="container">
+		<div class="col-md-12 layout-content-container">
+			<footer>
+				<div class="copyright">
+					<span>Powered by <a target="_blank" href="https://humhub.org/">HumHub</a></span>
+					<span>Theme <a target="_blank" href="http://thrashed.ru">developer</a></span>
+				</div>
+			</footer>
+		</div>
 	</div>
 
         <?= $content; ?>
