@@ -9,7 +9,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 layout-sidebar-container">
-			<?= \humhub\widgets\TopMenu::widget(); ?>
+            <ul class="nav" id="top-menu-nav">
+                    <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
+                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
+			        <?= \humhub\widgets\TopMenu::widget(); ?>
+			</ul>
+			<ul class="nav pull-right" id="search-menu-nav">
+                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
+            </ul>
             <?=
             \humhub\modules\dashboard\widgets\Sidebar::widget([
                 'widgets' => [
@@ -21,13 +28,12 @@
                 ]
             ]);
             ?>
-        </div>
-        <div class="col-md-8 layout-content-container">
-            <?php
-            if ($showProfilePostForm) {
-            echo \humhub\modules\post\widgets\Form::widget(['contentContainer' => \Yii::$app->user->getIdentity()]);
-            }
-            ?> 
+            </div>
+            <div class="col-md-8 layout-content-container">
+                <?= \humhub\modules\dashboard\widgets\DashboardContent::widget([
+                'contentContainer' => $contentContainer,
+                'showProfilePostForm' => $showProfilePostForm
+            ])?>
 
             <?=
             \humhub\modules\content\widgets\Stream::widget([
