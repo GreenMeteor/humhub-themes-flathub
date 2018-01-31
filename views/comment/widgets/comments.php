@@ -42,6 +42,4 @@ use humhub\widgets\AjaxButton;
         $('#comment_<?php echo $id; ?>').show();
 <?php } ?>
 
-
-
 </script>
