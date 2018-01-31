@@ -38,22 +38,28 @@
                 </div>
             </div>
         </div>
-        <!-- end: first top navigation bar -->
+    </div>
+    <!-- end: first top navigation bar -->
 
-        <!-- start: second top navigation bar -->
-        <div id="topbar-second" class="topbar">
-            <div class="container">
-                <ul class="nav" id="top-menu-nav">
-                    <!-- load space chooser widget -->
-                    <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
+    <?= \humhub\modules\tour\widgets\Tour::widget(); ?>
 
-                    <!-- load navigation from widget -->
-                    <?= \humhub\widgets\TopMenu::widget(); ?>
-                </ul>
+    <!-- start: show content (and check, if exists a sublayout -->
+    <?php if (isset($this->context->subLayout) && $this->context->subLayout != "") : ?>
+        <?= $this->render($this->context->subLayout, array('content' => $content)); ?>
+    <?php else  : ?>
 
-                <ul class="nav pull-right" id="search-menu-nav">
-                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
-                </ul>
+        <?= $content;  ?>
+
+    <?php endif; ?>
+    <!-- end: show content -->
+
+    <!-- start: Modal (every lightbox will/should use this construct to show content)-->
+    <div class="modal" id="globalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <?= \humhub\widgets\LoaderWidget::widget(); ?>
+                </div>
             </div>
         </div>
         <!-- end: second top navigation bar -->
